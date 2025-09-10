@@ -1,0 +1,6 @@
+﻿  复制了 0 个文件
+  300Hero.cpp
+D:\Tools\opencv\build\include\opencv2\imgcodecs.hpp(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+C:\Users\57774\source\repos\300Hero\300Hero\300Hero.cpp(14,21): warning C4129: 'K': unrecognized character escape sequence
+C:\Users\57774\source\repos\300Hero\300Hero\300Hero.cpp(14,21): warning C4129: 'i': unrecognized character escape sequence
+  300Hero.vcxproj -> C:\Users\57774\source\repos\300Hero\x64\Debug\300Hero.exe

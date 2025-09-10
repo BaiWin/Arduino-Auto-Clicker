@@ -1,0 +1,2 @@
+﻿  300Hero.cpp
+C:\Users\57774\source\repos\300Hero\300Hero\300Hero.cpp(1,10): fatal  error C1083: Cannot open include file: 'opencv2/opencv.hpp': No such file or directory

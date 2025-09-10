@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="screen_capture_lite">
+      <UniqueIdentifier>{472c6324-631c-458d-8b43-eafaab9260de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="300.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="300config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hearthstone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hearthstoneconfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\SCCommon.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\ScreenCapture.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\ThreadManager.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\DXFrameProcessor.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\GDIFrameProcessor.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\GDIMouseProcessor.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\GetMonitors.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\GetWindows.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_capture_lite\src_cpp\windows\ThreadRunner.cpp">
+      <Filter>screen_capture_lite</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="300config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hearthstoneconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\internal\SCCommon.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\internal\ThreadManager.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\DXFrameProcessor.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\GDIFrameProcessor.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\GDIHelpers.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_capture_lite\include\GDIMouseProcessor.h">
+      <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
