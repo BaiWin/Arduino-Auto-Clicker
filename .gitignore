@@ -2,3 +2,27 @@
 *.dll
 *.pdb
 *.ipch
+
+echo "x64/" >> .gitignore
+echo "*.exe" >> .gitignore
+echo "*.obj" >> .gitignore
+echo "*.log" >> .gitignore
+echo "*.tlog/" >> .gitignore
+echo "*.recipe" >> .gitignore
+echo "*.iobj" >> .gitignore
+echo "*.ipdb" >> .gitignore"x64/" 
+"*.exe" 
+"*.obj" 
+"*.log" 
+"*.tlog/" 
+"*.recipe" 
+"*.iobj" 
+"*.ipdb" 
+"x64/" 
+"*.exe" 
+"*.obj" 
+"*.log" 
+"*.tlog/" 
+"*.recipe" 
+"*.iobj" 
+"*.ipdb" 
