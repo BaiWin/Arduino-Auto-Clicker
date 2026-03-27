@@ -7,7 +7,9 @@
 #include <chrono>
 #include <conio.h>  // Windows 下用于检测键盘输入
 
-void Run300Game()
+bool g_foregroundThreadStarted = false;
+
+void RunGame()
 {
     // 初始化只做一次
     static bool initialized = false;
@@ -76,9 +78,11 @@ void Run300Game()
         return;
     }
 
+    PrintMousePos();
+
     for (auto& action : statePtr->actions)
     {
-        if (action.type == BehaviorType::ImageClick)
+        if (action.type == BehaviorType::ImageClick)  // 图片点击
         {
             bool isResize = true;
             if (action.imageCaptureMethod == 1)
@@ -116,7 +120,7 @@ void Run300Game()
             executeActionAtPoint(pt, action.actionName);
             performDelay(action.delay);
         }
-        else if (action.type == BehaviorType::Hover)
+        else if (action.type == BehaviorType::Hover)  // 悬停
         {
             POINT pt;
 
@@ -145,10 +149,17 @@ void Run300Game()
         }
         else if (action.type == BehaviorType::Drag)
         {
+            // 可扩展：从 (x,y) 拖到 (x2,y2)
             POINT from = { action.x, action.y };
+            POINT to = { action.x2, action.y2 };
+            ClientToScreen(hwnd, &from);
+            ClientToScreen(hwnd, &to);
             action.imageMatched = true;
-            executeActionAtPoint(from, action.actionName + ":" + std::to_string(action.x2) + "," + std::to_string(action.y2));
+            // 你需要在 utils 中添加 dragMouse(from, to) 函数
+            // dragMouse(from, to);
             performDelay(action.delay);
+
+            break;
         }
         else if (action.type == BehaviorType::KeyPressImage)
         {
@@ -175,13 +186,23 @@ void Run300Game()
             // 发送键盘指令（转成字符）
             pt = { pt.x + action.x2, pt.y + action.y2 };
             char keyChar = static_cast<char>(action.virtualKey);
+            keyChar = tolower(keyChar);
             executeActionAtPoint(pt, action.actionName + ":" + keyChar);
             action.imageMatched = true;
             performDelay(action.delay);
         }
+        else if (action.type == BehaviorType::FreeKeyPress)
+        {
+            POINT pt = { 0, 0 };
+            pt = { pt.x + action.x2, pt.y + action.y2 };
+            char keyChar = static_cast<char>(action.virtualKey);
+            keyChar = tolower(keyChar);
+            executeActionAtPoint(pt, action.actionName + ":" + keyChar);
+            performDelay(action.delay);
+        }
 
         // 按钮未点击成功不会进入下一状态
-        if (action.type == BehaviorType::ImageClick && action.imageMatched == false)
+        if ((action.type == BehaviorType::ImageClick || action.type == BehaviorType::KeyPressImage) && action.imageMatched == false)
             continue;
 
         if (!action.nextState.empty())

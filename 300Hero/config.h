@@ -29,11 +29,11 @@ struct Action
     int x2 = 0, y2 = 0;       // Drag 增量, Image偏移
     std::string nextState;    // 行为执行完成后跳转状态
     int delay = 3000;         // 执行完该行为后的延迟（毫秒）
-    bool executed = false;    // 标记是否执行过
+    bool imageMatched = false;    // 图片是否匹配，进入下一步的标志
     int virtualKey = 0;       // KeyPressImage 使用的虚拟按键码
-    bool useColorMatch = false;       // 是否启用色彩
-    double threshold = 0.7;   // 匹配阈值
-    int imageCaptureMethod = 0;
+    bool useColorMatch = false;       // 是否启用色彩匹配
+    double threshold = 0.7;   // 图片匹配阈值
+    int imageCaptureMethod = 1; // 匹配方式：截窗口、截屏幕
 };
 
 // 一个状态

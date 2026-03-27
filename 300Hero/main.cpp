@@ -2,12 +2,13 @@
 #include "300config.h"
 #include "hearthstoneconfig.h"
 #include <Windows.h>
+#include "utils.h"
 
 GameConfig myGame = config300Hero;
 
 GameModeConfig* currentMode = nullptr;
 
-std::string selectedModeName = "grail";
+std::string selectedModeName = "tower";
 
 std::string currentState;
 
@@ -16,18 +17,22 @@ void Run300Game();
 
 void RunHearthStone();
 
+void RunGame();
+
 int main()
 {
     std::cout << "程序启动\n";
 
     // 注册 *** 键为全局热键（全局热键能后台监听）
-    if (!RegisterHotKey(NULL, 1, MOD_CONTROL | MOD_SHIFT, 'C') || !RegisterHotKey(NULL, 2, MOD_CONTROL | MOD_SHIFT, VK_F12))
+    if (!RegisterHotKey(NULL, 1, MOD_CONTROL | MOD_SHIFT, 'C') ||
+        !RegisterHotKey(NULL, 2, MOD_CONTROL | MOD_SHIFT, VK_F12) ||
+        !RegisterHotKey(NULL, 3, MOD_CONTROL | MOD_SHIFT, 'X'))
     {
         std::cerr << "注册热键失败！" << std::endl;
         return 1;
     }
 
-    std::cout << "热键：[Ctrl+Shift+C] [Ctrl+Shift+F12]" << std::endl;
+    std::cout << "热键：[Ctrl+Shift+C] [Ctrl+Shift+F12] [Ctrl+Shift+X]" << std::endl;
 
     while (true)
     {
@@ -47,6 +52,11 @@ int main()
                     std::cout << "[Ctrl+Shift+F12] 触发,程序退出" << std::endl;
                     return 0;
                 }
+                else if (msg.wParam == 3) // Ctrl+Shift+X
+                {
+                    std::cout << "[Ctrl+Shift+X] 触发,执行特定功能..." << std::endl;
+                    PrintMousePos();
+                }
                 
             }
         }
@@ -54,17 +64,18 @@ int main()
 
         if (myGame.exeName == config300Hero.exeName)
         {
-            Run300Game();
+            RunGame();
+            //Run300Game();
         }
         else if (myGame.exeName == configHearthStone.exeName)
         {
-            RunHearthStone();
+            //RunHearthStone();
         }
         else if (myGame.exeName == configHearthStone.exeName)
         {
 
         }
-        Sleep(1000);
+        Sleep(500);
     }
     
     return 0;

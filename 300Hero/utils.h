@@ -3,7 +3,7 @@
 #include <string>
 #include <Windows.h>
 
-extern double dpiScale;
+extern double DPI;
 
 cv::Mat captureWindow(HWND hwnd);
 cv::Point findButton(const cv::Mat& screenshot, const std::string& imagePath, bool isResize, double threshold = 0.6, bool useColorMatch = false);

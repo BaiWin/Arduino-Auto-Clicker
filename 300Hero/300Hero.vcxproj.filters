@@ -24,16 +24,10 @@
     <ClCompile Include="utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="300.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="300config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hearthstone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="hearthstoneconfig.cpp">
@@ -66,6 +60,12 @@
     <ClCompile Include="screen_capture_lite\src_cpp\windows\ThreadRunner.cpp">
       <Filter>screen_capture_lite</Filter>
     </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RogueConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -97,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="screen_capture_lite\include\GDIMouseProcessor.h">
       <Filter>screen_capture_lite</Filter>
+    </ClInclude>
+    <ClInclude Include="RogueConfig.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

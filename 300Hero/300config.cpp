@@ -37,8 +37,12 @@ const GameConfig config300Hero = {
             {
                 {
                     "InGame", {
-                        { BehaviorType::ImageClick, "leftclick", "resources/300hero/skillw.png", 0, 0, 100, 40, "", 1300 },
-                        { BehaviorType::ImageClick, "leftclick", "resources/300hero/base.png", 0, 0, 560, -120, "", 1400 },
+                        //{ BehaviorType::ImageClick, "leftclick", "resources/300hero/skillw.png", 0, 0, 80, 0, "", 1300 },
+                        { BehaviorType::ImageClick, "leftclick", "resources/300hero/skillw.png", 0, 0, 200, -1300, "", 1200 },
+                        { BehaviorType::FreeKeyPress, "keypress", "", 0, 0, 0, 0, "", 200, false, 69 },
+                        //{ BehaviorType::ImageClick, "leftclick", "resources/300hero/skillw.png", 0, 0, 80, 0, "", 1300 },
+                        { BehaviorType::ImageClick, "leftclick", "resources/300hero/skillw.png", 0, 0, 550, -1020, "", 1200 },
+                        { BehaviorType::FreeKeyPress, "keypress", "", 0, 0, 0, 0, "", 200, false, 69 },
                     }
                 }
             }
@@ -112,4 +116,4 @@ const GameConfig config300Hero = {
 };
 
 //{ BehaviorType::KeyPressImage, "keypress", "resources/base.png", 0, 0, 150, -360, "", 3000, false, 0x45},
-//{ BehaviorType::KeyPressImage, "keypress", "resources/base.png", 0, 0, 560, -120, "InGame", 3000, false, 0x45 }
+//{ BehaviorType::KeyPressImage, "keypress", "resources/base.png", 0, 0, 560, -120, "InGame", 3000, false, 0x45 }ee

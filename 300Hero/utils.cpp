@@ -2,8 +2,8 @@
 #include <TlHelp32.h>
 #include <iostream>
 
-double dpiScale = 1.5; // 150%
-const std::string comPort = "COM7";
+#define DPI 1.5
+const std::string comPort = "COM5";
 
 cv::Mat captureWindow(HWND hwnd)
 {
@@ -88,11 +88,11 @@ cv::Point findButton(const cv::Mat& screenshot, const std::string& imagePath, bo
     // 如果模板图是从 Windows Snipping Tool 来的（受 DPI 缩放），先缩放回原始比例
     static cv::Mat adjustedTemplate;
     //, adjustedScreenshot;
-    //cv::resize(temp, adjustedTemplate, cv::Size(), 1.0 / dpiScale, 1.0 / dpiScale); // 150% -> 100% adjustedTemplate
-    //cv::resize(src, adjustedScreenshot, cv::Size(), dpiScale, dpiScale);
+    //cv::resize(temp, adjustedTemplate, cv::Size(), 1.0 / DPI, 1.0 / DPI); // 150% -> 100% adjustedTemplate
+    //cv::resize(src, adjustedScreenshot, cv::Size(), DPI, DPI);
 
     if (isResize)
-        cv::resize(temp, adjustedTemplate, cv::Size(), 1.0 / dpiScale, 1.0 / dpiScale); // 150% -> 100% adjustedTemplate
+        cv::resize(temp, adjustedTemplate, cv::Size(), 1.0 / DPI, 1.0 / DPI); // 150% -> 100% adjustedTemplate
     else
         adjustedTemplate = temp;
 
@@ -122,8 +122,8 @@ cv::Point findButton(const cv::Mat& screenshot, const std::string& imagePath, bo
         if (isResize)
         {
             matchInOriginal = cv::Point(
-                static_cast<int>(matchInAdjusted.x * dpiScale),
-                static_cast<int>(matchInAdjusted.y * dpiScale)
+                static_cast<int>(matchInAdjusted.x * DPI),
+                static_cast<int>(matchInAdjusted.y * DPI)
             );    // 100% 的图片坐标 * DPI
         }
         else // 这里有问题
@@ -191,6 +191,7 @@ HWND FindMainWindowByPID(DWORD pid)
 
 void sendSerialCommand(const std::string& command)
 {
+
     std::string fullPort = "\\\\.\\" + comPort;
 
     HANDLE hSerial = CreateFileA(fullPort.c_str(),
@@ -224,8 +225,8 @@ POINT getCurrentMousePos()
 void moveToScreenPoint(POINT targetPt)
 {
     POINT curPos = getCurrentMousePos();
-    int dx = (targetPt.x - curPos.x);
-    int dy = (targetPt.y - curPos.y);
+    int dx = (targetPt.x - curPos.x) / DPI;
+    int dy = (targetPt.y - curPos.y) / DPI;
 
     std::string moveCmd = "move:" + std::to_string(dx) + "," + std::to_string(dy);
 
@@ -239,8 +240,8 @@ void moveToScreenPoint(POINT targetPt)
 // 点击按钮
 void executeActionAtPoint(POINT targetPt, const std::string& clickType)
 {
-    moveToScreenPoint(targetPt);
-    Sleep(400);
+    if(targetPt.x != 0 || targetPt.y != 0) moveToScreenPoint(targetPt);
+    Sleep(200);
     if (!clickType.empty())
     {
         sendSerialCommand(clickType);

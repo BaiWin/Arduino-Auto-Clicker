@@ -81,7 +81,7 @@ void RunHearthStone()
             ClientToScreen(hwnd, &pt);
             pt = { pt.x + action.x2, pt.y + action.y2 };
             executeActionAtPoint(pt, action.actionName);
-            action.executed = true;
+            action.imageMatched = true;
             performDelay(action.delay);
         }
         else if (action.type == BehaviorType::FreeClick)
@@ -94,13 +94,13 @@ void RunHearthStone()
         else if (action.type == BehaviorType::Drag)
         {
             POINT from = { action.x, action.y };
-            action.executed = true;
+            action.imageMatched = true;
             executeActionAtPoint(from, action.actionName + ":" + std::to_string(action.x2) + "," + std::to_string(action.y2));
             performDelay(action.delay);
         }
 
         // 按钮未点击成功不会进入下一状态
-        if (action.type == BehaviorType::ImageClick && action.executed == false)
+        if (action.type == BehaviorType::ImageClick && action.imageMatched == false)
             continue;
 
         if (!action.nextState.empty())
@@ -109,7 +109,7 @@ void RunHearthStone()
 
             // 清除所有动作已执行标记
             for (auto& a : statePtr->actions)
-                a.executed = false;
+                a.imageMatched = false;
 
             std::cout << "切换状态到：" << currentState << std::endl;
             break;

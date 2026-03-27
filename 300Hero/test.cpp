@@ -217,7 +217,7 @@ cv::Point findButton_Test(const cv::Mat& screenshot, const std::string& imagePat
     static cv::Mat adjustedTemplate;
     //, adjustedScreenshot;
     cv::resize(temp, adjustedTemplate, cv::Size(), 1.0 / 1.5, 1.0 / 1.5); // 150% -> 100% adjustedTemplate
-    //cv::resize(src, adjustedScreenshot, cv::Size(), dpiScale, dpiScale);
+    //cv::resize(src, adjustedScreenshot, cv::Size(), DPI, DPI);
 
     cv::cvtColor(src, src, cv::COLOR_BGR2GRAY);
     cv::cvtColor(temp, temp, cv::COLOR_BGR2GRAY);

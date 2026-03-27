@@ -126,7 +126,7 @@ xcopy /Y /D "$(ProjectDir)resources" "$(OutDir)"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Tools\opencv\build\include;C:\Users\57774\source\repos\300Hero\300Hero\screen_capture_lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Tools\opencv\build\include;$(ProjectDir)screen_capture_lite\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,7 +135,7 @@ xcopy /Y /D "$(ProjectDir)resources" "$(OutDir)"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opencv_world4120.lib;Shcore.lib;Ole32.lib;d3d11.lib;dwmapi.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\57774\source\repos\300Hero\300Hero\opencv\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)opencv\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>xcopy /Y /D "$(ProjectDir)\opencv\dlls\opencv_world4120.dll" "$(OutDir)"
@@ -143,11 +143,11 @@ xcopy /Y /D "$(ProjectDir)resources" "$(OutDir)"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="300.cpp" />
     <ClCompile Include="300config.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="hearthstoneconfig.cpp" />
-    <ClCompile Include="hearthstone.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RogueConfig.cpp" />
     <ClCompile Include="screen_capture_lite\src_cpp\SCCommon.cpp" />
     <ClCompile Include="screen_capture_lite\src_cpp\ScreenCapture.cpp" />
     <ClCompile Include="screen_capture_lite\src_cpp\ThreadManager.cpp" />
@@ -166,6 +166,7 @@ xcopy /Y /D "$(ProjectDir)resources" "$(OutDir)"</Command>
     <ClInclude Include="300config.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="hearthstoneconfig.h" />
+    <ClInclude Include="RogueConfig.h" />
     <ClInclude Include="screen_capture_lite\include\DXFrameProcessor.h" />
     <ClInclude Include="screen_capture_lite\include\GDIFrameProcessor.h" />
     <ClInclude Include="screen_capture_lite\include\GDIHelpers.h" />
